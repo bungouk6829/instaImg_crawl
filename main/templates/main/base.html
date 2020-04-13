@@ -1,0 +1,27 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{%static 'main/reset.css'%}">
+    <link rel="stylesheet" href="{%static 'main/base.css'%}">
+    <link rel="stylesheet" href="{%static 'main/detail_img.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <title>인스타그램 사진가져오기</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="search_section">
+        <form class="search_form" action="{%url 'main:detail_img'%}" method="get">
+            <h1>인스타그램 이미지 가져오기</h1>
+            <input type="text" placeholder=" 인스타그램 계정을 입력하세요.." name="account">
+            <button type="submit">Search</button>
+        </form>
+      </section>
+      <section class="result_section">
+        {%block content%}
+        {%endblock%}
+      </section>
+    </div>
+  </body>
+</html>
