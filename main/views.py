@@ -18,7 +18,7 @@ def detail_img(request):
     plusUrl = str(plusUrl)
     url = baseUrl + quote_plus(plusUrl)
 
-    driver = webdriver.Chrome('./chromedriver')
+    driver = webdriver.Firefox(executable_path='/Users/kimbyeonguk/Desktop/practice/django/instaPrj/geckodriver')
     driver.get(url)
 
     html = driver.page_source
