@@ -21,6 +21,12 @@ def detail_img(request):
     driver = webdriver.Firefox(executable_path='/Users/kimbyeonguk/Desktop/practice/django/instaPrj/geckodriver')
     driver.get(url)
 
+    pageDown = 30
+    while pageDown:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(1)
+        pageDown -= 1
+
     html = driver.page_source
     soup = BeautifulSoup(html)
 

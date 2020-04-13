@@ -17,9 +17,30 @@ driver.get(url)
 
 html = driver.page_source
 soup = BeautifulSoup(html)
+html = driver.page_source
+soup = BeautifulSoup(html)
 
-for i in driver.find_element_by_class_name('.mt-10 > div > .mr-8'):
-    print(str(i).text)
+instaImg = soup.select('div.grid-item>div>a')
+instaText = soup.select('div.grid-item>div.p-4>div.break-words')
+
+imgSrcList = []
+textList = []
+posts = {}
+
+for i in instaImg:
+    imgSrcList.append(i.img['src'])
+
+for i in instaText:
+    textList.append(i)
+
+for i in range(len(imgSrcList)):
+    img = imgSrcList[i]
+    text = textList[i]
+    posts.update({img:text})
+
+for key,value in posts.items():
+    print(key)
+    print(value)
 
 
 driver.close()
